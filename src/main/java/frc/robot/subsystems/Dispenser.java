@@ -9,19 +9,19 @@ import frc.robot.Constants;
 
 public class Dispenser extends SubsystemBase {
 
-  private CANSparkMax[] ballTunnelMotors;
-  private MotorControllerGroup ballTunnelGroup;
+  private CANSparkMax[] dispenserMotors;
+  private MotorControllerGroup dispenserGroup;
 
   public Dispenser() {
-    ballTunnelMotors = new CANSparkMax[Constants.kBallTunnelMotors.length];
-    for(int i = 0;i < Constants.kBallTunnelMotors.length;i ++){
-      ballTunnelMotors[i] = new CANSparkMax(Constants.kBallTunnelMotors[i], MotorType.kBrushed);
+    dispenserMotors = new CANSparkMax[Constants.kDispenserMotors.length];
+    for(int i = 0;i < Constants.kDispenserMotors.length;i ++){
+      dispenserMotors[i] = new CANSparkMax(Constants.kDispenserMotors[i], MotorType.kBrushed);
     }
-    ballTunnelGroup = new MotorControllerGroup(ballTunnelMotors);
+    dispenserGroup = new MotorControllerGroup(dispenserMotors);
   }
 
   public void set(double speed){
-    ballTunnelGroup.set(speed);
+    dispenserGroup.set(speed);
   }
 
   @Override
