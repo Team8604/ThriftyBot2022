@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -9,13 +8,13 @@ import frc.robot.Constants;
 
 public class Dispenser extends SubsystemBase {
 
-  private CANSparkMax[] dispenserMotors;
+  private WPI_VictorSPX[] dispenserMotors;
   private MotorControllerGroup dispenserGroup;
 
   public Dispenser() {
-    dispenserMotors = new CANSparkMax[Constants.kDispenserMotors.length];
+    dispenserMotors = new WPI_VictorSPX[Constants.kDispenserMotors.length];
     for(int i = 0;i < Constants.kDispenserMotors.length;i ++){
-      dispenserMotors[i] = new CANSparkMax(Constants.kDispenserMotors[i], MotorType.kBrushed);
+      dispenserMotors[i] = new WPI_VictorSPX(Constants.kDispenserMotors[i]);
     }
     dispenserGroup = new MotorControllerGroup(dispenserMotors);
   }

@@ -4,8 +4,7 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -15,24 +14,24 @@ import frc.robot.Constants;
 public class KOPChassis extends SubsystemBase {
   /** Creates a new Drivetrain. */
   
-  private CANSparkMax leftLeader;
-  private CANSparkMax rightLeader;
-  private CANSparkMax leftFollower;
-  private CANSparkMax rightFollower;
+  private WPI_VictorSPX leftLeader;
+  private WPI_VictorSPX rightLeader;
+  private WPI_VictorSPX leftFollower;
+  private WPI_VictorSPX rightFollower;
   private MotorControllerGroup leftMotors;
   private MotorControllerGroup rightMotors;
   private DifferentialDrive differentialDrive;
 
   public KOPChassis() {
     // Init Left Leader
-    leftLeader  = new CANSparkMax(Constants.kLeftLeader, MotorType.kBrushed);
+    leftLeader  = new WPI_VictorSPX(Constants.kLeftLeader);
     // Init Right Leader
-    rightLeader  = new CANSparkMax(Constants.kRightLeader, MotorType.kBrushed);
+    rightLeader  = new WPI_VictorSPX(Constants.kRightLeader);
 
     // init left follower
-    leftFollower  = new CANSparkMax(Constants.kLeftFollower, MotorType.kBrushed);
+    leftFollower  = new WPI_VictorSPX(Constants.kLeftFollower);
     //init right followers
-    rightFollower  = new CANSparkMax(Constants.kRightFollower, MotorType.kBrushed);
+    rightFollower  = new WPI_VictorSPX(Constants.kRightFollower);
 
     leftMotors = new MotorControllerGroup(leftLeader, leftFollower);
     rightMotors = new MotorControllerGroup(rightLeader, rightFollower);

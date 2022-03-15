@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -9,13 +8,13 @@ import frc.robot.Constants;
 
 public class BallTunnel extends SubsystemBase {
 
-  private CANSparkMax[] ballTunnelMotors;
+  private WPI_VictorSPX[] ballTunnelMotors;
   private MotorControllerGroup ballTunnelGroup;
 
   public BallTunnel() {
-    ballTunnelMotors = new CANSparkMax[Constants.kBallTunnelMotors.length];
+    ballTunnelMotors = new WPI_VictorSPX[Constants.kBallTunnelMotors.length];
     for(int i = 0;i < Constants.kBallTunnelMotors.length;i ++){
-      ballTunnelMotors[i] = new CANSparkMax(Constants.kBallTunnelMotors[i], MotorType.kBrushed);
+      ballTunnelMotors[i] = new WPI_VictorSPX(Constants.kBallTunnelMotors[i]);
     }
     ballTunnelGroup = new MotorControllerGroup(ballTunnelMotors);
   }
