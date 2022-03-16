@@ -10,10 +10,10 @@ public final class Constants {
     public static final int[] kBallTunnelMotors = new int[] { 1 };
     public static final int[] kDispenserMotors = new int[] { 3 };
     public static final int kIntakeMotor = 13;
-    public static final int kIntakeActuationMotor = 5;
+    public static final int kIntakeActuationMotor = 4;
 
     //Multipliers
-    public static final double kDriveModifier = 0.40;
+    public static final double kDriveModifier = 1.00;
     public static final double kBallTunnelSpeed = 0.25;
     public static final double kDispenserSpeed = 1;
 
