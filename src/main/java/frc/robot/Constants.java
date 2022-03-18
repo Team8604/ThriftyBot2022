@@ -17,7 +17,7 @@ public final class Constants {
     public static final double kBallTunnelSpeed = 0.25;
     public static final double kDispenserSpeed = 1;
 
-    // Button IDs
+    //Button IDs
     public static final int kButtonA = 1;
     public static final int kButtonB = 2;
     public static final int kButtonX = 3;
@@ -36,4 +36,26 @@ public final class Constants {
     public static final int kButton2 = 2;
     public static final int kButton3 = 3;
     public static final int kButton4 = 4;
+
+    //PID Constants
+    public static final int kPIDLoopIdx = 0;
+    public static final int kTimeoutMs = 0;
+    public static final int kTimeoutsMs = 0;
+    public static final double kGains_Position_kP = 0.5;
+    public static final double kGains_Position_kI = 0;
+    public static final double kGains_Position_kD = 0;
+    public static final double kGains_Position_kF = 0;
+
+    //Other
+
+    /*
+     * The talon FX has a built in econder that reports 2048 ticks per rotation.
+     * There is an 18 tooth pulley attached to the motor and a 64 tooth pulley attached to the intake arm.
+     * The arm needs to rotate 90 degrees.
+    */
+    public static double kIntakeRotationDegrees = 90;
+    public static double kIntakeRotationRevs = kIntakeRotationDegrees/360;
+    public static double kIntakeActuatorGearRatio = 64.0/18.0;
+    public static double kIntakeRotationRevsAtMotor = kIntakeActuatorGearRatio * kIntakeActuatorGearRatio;
+    public static double kIntakeRotationTicks = 2048 * kIntakeRotationRevsAtMotor;
 }

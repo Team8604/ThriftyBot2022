@@ -6,14 +6,17 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.BallTunnelMotor;
 import frc.robot.commands.Dispense;
+import frc.robot.commands.DriveTime;
 import frc.robot.subsystems.BallTunnel;
 import frc.robot.subsystems.Dispenser;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.KOPChassis;
 
 public class RobotContainer {
   public static final KOPChassis chassis = new KOPChassis();
   public static final BallTunnel ballTunnel = new BallTunnel();
   public static final Dispenser dispenser = new Dispenser();
+  public static final Intake intake = new Intake();
 
   public static Joystick driverController = new Joystick(0);
 
@@ -41,6 +44,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return null;
+    return new DriveTime(-Constants.kDriveModifier, 0, 45);
   }
 }
