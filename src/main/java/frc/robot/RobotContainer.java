@@ -7,6 +7,8 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.BallTunnelMotor;
 import frc.robot.commands.Dispense;
 import frc.robot.commands.DriveTime;
+import frc.robot.commands.IntakeDeploy;
+import frc.robot.commands.IntakeRetract;
 import frc.robot.subsystems.BallTunnel;
 import frc.robot.subsystems.Dispenser;
 import frc.robot.subsystems.Intake;
@@ -36,6 +38,9 @@ public class RobotContainer {
   
     driverXButton.whenPressed(new Dispense(true));
     driverXButton.whenReleased(new Dispense(false));
+
+    driverAButton.whenPressed(new IntakeDeploy());
+    driverAButton.whenReleased(new IntakeRetract());
 
     driverLBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
     driverLBumper.whenReleased(new BallTunnelMotor(0));
