@@ -19,7 +19,7 @@ public class ArcadeDrive extends CommandBase {
     double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickX);
     
     moveSpeed *= Constants.kDriveModifier;
-    rotateSpeed *= Constants.kDriveModifier;
+    rotateSpeed *= Constants.kSteerModifier;
 
     RobotContainer.chassis.arcadeDrive(rotateSpeed, moveSpeed);
   }

@@ -13,7 +13,8 @@ public final class Constants {
     public static final int kIntakeActuationMotor = 4;
 
     //Multipliers
-    public static final double kDriveModifier = 1.00;
+    public static final double kDriveModifier = -1.00;
+    public static final double kSteerModifier = 0.65;
     public static final double kBallTunnelSpeed = 0.25;
     public static final double kDispenserSpeed = 1;
     public static final double kIntakeSpeed = 0.5;
