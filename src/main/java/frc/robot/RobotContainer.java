@@ -39,16 +39,16 @@ public class RobotContainer {
     driverXButton.whenPressed(new Dispense(true));
     driverXButton.whenReleased(new Dispense(false));
 
-    driverAButton.whenPressed(new IntakeDeploy());
+    /*driverAButton.whenPressed(new IntakeDeploy());
     driverAButton.whenReleased(new IntakeRetract());
 
     driverLBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
     driverLBumper.whenReleased(new BallTunnelMotor(0));
     driverRBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
-    driverRBumper.whenReleased(new BallTunnelMotor(0));
+    driverRBumper.whenReleased(new BallTunnelMotor(0));*/
   }
 
   public Command getAutonomousCommand() {
-    return new DriveTime(-Constants.kDriveModifier, 0, 45);
+    return Auto();
   }
 }
