@@ -11,30 +11,31 @@ import frc.robot.RobotContainer;
 public class DriveTime extends CommandBase {
 
   private double moveSpeed;
-  private double rotateSpeed;
   private double duration;
   private Timer timer;
 
-  public DriveTime(double moveSpeed, double rotateSpeed, double duration) {
+  public DriveTime(double moveSpeed, double duration) {
     addRequirements(RobotContainer.chassis);
     this.moveSpeed = moveSpeed;
-    this.rotateSpeed = rotateSpeed;
     this.duration = duration;
     timer = new Timer();
     timer.start();
   }
 
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   @Override
   public void execute() {
-    RobotContainer.chassis.arcadeDrive(moveSpeed, rotateSpeed);
+    RobotContainer.chassis.setMotorSafety(false);
+    RobotContainer.chassis.arcadeDrive(moveSpeed, 0);
   }
 
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.chassis.arcadeDrive(0, 0);
+    RobotContainer.chassis.set(0, 0);
+    RobotContainer.chassis.setMotorSafety(true);
   }
 
   @Override
