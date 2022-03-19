@@ -42,6 +42,6 @@ public class Auto extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return timer.hasElapsed(5);
+    return timer.hasElapsed(6);
   }
 }
