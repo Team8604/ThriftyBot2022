@@ -25,7 +25,7 @@ public class Auto extends CommandBase {
 
   @Override
   public void execute() {
-    if(timer.hasElapsed(2)){
+    if(timer.hasElapsed(3)){
       RobotContainer.chassis.setMotorSafety(false);
       RobotContainer.chassis.arcadeDrive(0, 0.5);
       RobotContainer.dispenser.set(0);
@@ -42,6 +42,6 @@ public class Auto extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return timer.hasElapsed(6);
+    return timer.hasElapsed(7);
   }
 }
