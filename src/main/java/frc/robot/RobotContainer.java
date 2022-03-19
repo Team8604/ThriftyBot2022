@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.Auto;
 import frc.robot.commands.BallTunnelMotor;
 import frc.robot.commands.Dispense;
 import frc.robot.commands.DriveTime;
@@ -49,6 +50,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return Auto();
+    return new Auto();
   }
 }
