@@ -22,6 +22,8 @@ public class KOPChassis extends SubsystemBase {
   private MotorControllerGroup rightMotors;
   private DifferentialDrive differentialDrive;
 
+  public boolean climbingMode = false;
+
   public KOPChassis() {
     // Init Left Leader
     leftLeader  = new WPI_VictorSPX(Constants.kLeftLeader);
