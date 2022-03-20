@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.Auto;
 import frc.robot.commands.BallTunnelMotor;
-import frc.robot.commands.ClimbingMode;
+import frc.robot.commands.DriveMode;
 import frc.robot.commands.Dispense;
 import frc.robot.commands.DispenserMotor;
 import frc.robot.commands.DriveTime;
@@ -41,8 +41,10 @@ public class RobotContainer {
   
     driverXButton.whenPressed(new DispenserMotor(Constants.kDispenserSpeed));
     driverXButton.whenReleased(new DispenserMotor(0));
-    driverYButton.whenPressed(new ClimbingMode(true));
-    driverYButton.whenReleased(new ClimbingMode(false));
+    driverYButton.whenPressed(new DriveMode(true, false));
+    driverYButton.whenReleased(new DriveMode(false, false));
+    driverBButton.whenPressed(new DriveMode(false, true));
+    driverBButton.whenReleased(new DriveMode(false, false));
 
     /*driverAButton.whenPressed(new IntakeDeploy());
     driverAButton.whenReleased(new IntakeRetract());*/

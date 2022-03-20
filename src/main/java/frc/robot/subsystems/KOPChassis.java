@@ -22,7 +22,8 @@ public class KOPChassis extends SubsystemBase {
   private MotorControllerGroup rightMotors;
   private DifferentialDrive differentialDrive;
 
-  public boolean climbingMode = false;
+  public boolean climb = false;
+  public boolean unlock = false;
 
   public KOPChassis() {
     // Init Left Leader

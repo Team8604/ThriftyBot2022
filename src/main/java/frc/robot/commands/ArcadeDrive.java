@@ -18,10 +18,10 @@ public class ArcadeDrive extends CommandBase {
     double moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickY);
     double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickX);
     
-    if(RobotContainer.chassis.climbingMode) {
+    if(RobotContainer.chassis.climb) {
       moveSpeed *= Constants.kClimbDriveModifier;
       rotateSpeed *= Constants.kClimbSteerModifier;
-    } else {
+    } else if(!RobotContainer.chassis.unlock) {
       moveSpeed *= Constants.kDriveModifier;
       rotateSpeed *= Constants.kSteerModifier;
     }
