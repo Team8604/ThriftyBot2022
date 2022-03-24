@@ -16,7 +16,7 @@ public class Intake extends SubsystemBase {
   public Intake() {
     intakeMotor = new WPI_VictorSPX(Constants.kIntakeMotor);
 
-    /*intakeActuatorMotor = new WPI_TalonFX(Constants.kIntakeActuationMotor);
+    intakeActuatorMotor = new WPI_TalonFX(Constants.kIntakeActuationMotor);
 
     intakeActuatorMotor.configFactoryDefault();
     intakeActuatorMotor.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, Constants.kPIDLoopIdx,
@@ -24,7 +24,7 @@ public class Intake extends SubsystemBase {
         intakeActuatorMotor.config_kF(Constants.kPIDLoopIdx, Constants.kGains_Position_kF, Constants.kTimeoutsMs);
     intakeActuatorMotor.config_kP(Constants.kPIDLoopIdx, Constants.kGains_Position_kP, Constants.kTimeoutsMs);
     intakeActuatorMotor.config_kI(Constants.kPIDLoopIdx, Constants.kGains_Position_kI, Constants.kTimeoutsMs);
-    intakeActuatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kGains_Position_kD, Constants.kTimeoutsMs);*/
+    intakeActuatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kGains_Position_kD, Constants.kTimeoutsMs);
   }
 
   @Override
@@ -33,7 +33,7 @@ public class Intake extends SubsystemBase {
   }
 
   public void setActuator(double position) {
-    //intakeActuatorMotor.set(TalonFXControlMode.Position, position);
+    intakeActuatorMotor.set(TalonFXControlMode.Position, position);
   }
   
   public void set(double speed){
