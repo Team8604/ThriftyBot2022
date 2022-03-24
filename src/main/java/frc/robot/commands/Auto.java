@@ -6,18 +6,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
-public class DriveTime extends CommandBase {
+public class Auto extends CommandBase {
 
-  private double moveSpeed;
-  private double duration;
   private Timer timer;
 
-  public DriveTime(double moveSpeed, double duration) {
-    addRequirements(RobotContainer.chassis);
-    this.moveSpeed = moveSpeed;
-    this.duration = duration;
+  public Auto() {
+    addRequirements(RobotContainer.chassis, RobotContainer.dispenser);
     timer = new Timer();
     timer.start();
   }
@@ -28,8 +25,13 @@ public class DriveTime extends CommandBase {
 
   @Override
   public void execute() {
-    RobotContainer.chassis.setMotorSafety(false);
-    RobotContainer.chassis.arcadeDrive(moveSpeed, 0);
+    if(timer.hasElapsed(6)){
+      RobotContainer.chassis.setMotorSafety(false);
+      RobotContainer.chassis.arcadeDrive(0, 0.5);
+      RobotContainer.dispenser.set(0);
+    } else if(timer.hasElapsed(3)) {
+      RobotContainer.dispenser.set(Constants.kDispenserSpeed);
+    }
   }
 
   @Override
@@ -40,6 +42,6 @@ public class DriveTime extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return timer.hasElapsed(duration);
+    return timer.hasElapsed(10);
   }
 }

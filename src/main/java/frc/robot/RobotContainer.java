@@ -4,8 +4,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.Auto;
 import frc.robot.commands.BallTunnelMotor;
+import frc.robot.commands.DriveMode;
 import frc.robot.commands.Dispense;
+import frc.robot.commands.DispenserMotor;
 import frc.robot.commands.DriveTime;
 import frc.robot.commands.IntakeDeploy;
 import frc.robot.commands.IntakeRetract;
@@ -25,7 +28,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureButtonBindings();
 
-    chassis.setDefaultCommand(new ArcadeDrive());
+    //chassis.setDefaultCommand(new ArcadeDrive());
   }
 
   private void configureButtonBindings() {
@@ -36,19 +39,24 @@ public class RobotContainer {
     JoystickButton driverRBumper = new JoystickButton(driverController, Constants.kBumperR);
     JoystickButton driverLBumper = new JoystickButton(driverController, Constants.kBumperL);
   
-    driverXButton.whenPressed(new Dispense(true));
-    driverXButton.whenReleased(new Dispense(false));
+    driverXButton.whenPressed(new DispenserMotor(Constants.kDispenserSpeed));
+    driverXButton.whenReleased(new DispenserMotor(0));
+    driverYButton.whenPressed(new DriveMode(true, false));
+    driverYButton.whenReleased(new DriveMode(false, false));
+    driverBButton.whenPressed(new DriveMode(false, true));
+    driverBButton.whenReleased(new DriveMode(false, false));
 
     driverAButton.whenPressed(new IntakeDeploy());
     driverAButton.whenReleased(new IntakeRetract());
 
-    driverLBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
+    driverLBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
     driverLBumper.whenReleased(new BallTunnelMotor(0));
-    driverRBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
+    driverRBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
     driverRBumper.whenReleased(new BallTunnelMotor(0));
   }
 
   public Command getAutonomousCommand() {
-    return new DriveTime(-Constants.kDriveModifier, 0, 45);
+    return new Auto();
+    //return new DriveTime(1, 1);
   }
 }

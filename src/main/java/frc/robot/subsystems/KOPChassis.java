@@ -22,16 +22,24 @@ public class KOPChassis extends SubsystemBase {
   private MotorControllerGroup rightMotors;
   private DifferentialDrive differentialDrive;
 
+  public boolean climb = false;
+  public boolean unlock = false;
+
   public KOPChassis() {
     // Init Left Leader
     leftLeader  = new WPI_VictorSPX(Constants.kLeftLeader);
+    leftLeader.configFactoryDefault();
     // Init Right Leader
     rightLeader  = new WPI_VictorSPX(Constants.kRightLeader);
+    rightLeader.configFactoryDefault();
 
     // init left follower
     leftFollower  = new WPI_VictorSPX(Constants.kLeftFollower);
+    leftFollower.configFactoryDefault();
+
     //init right followers
     rightFollower  = new WPI_VictorSPX(Constants.kRightFollower);
+    rightFollower.configFactoryDefault();
 
     leftMotors = new MotorControllerGroup(leftLeader, leftFollower);
     rightMotors = new MotorControllerGroup(rightLeader, rightFollower);
@@ -45,6 +53,10 @@ public class KOPChassis extends SubsystemBase {
   public void set(double leftspeed, double rightspeed){
     leftMotors.set(leftspeed);
     rightMotors.set(rightspeed);
+  }
+
+  public void setMotorSafety(boolean value){
+    differentialDrive.setSafetyEnabled(value);
   }
 
   @Override
