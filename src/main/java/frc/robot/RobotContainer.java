@@ -28,7 +28,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureButtonBindings();
 
-    chassis.setDefaultCommand(new ArcadeDrive());
+    //chassis.setDefaultCommand(new ArcadeDrive());
   }
 
   private void configureButtonBindings() {
@@ -46,13 +46,13 @@ public class RobotContainer {
     driverBButton.whenPressed(new DriveMode(false, true));
     driverBButton.whenReleased(new DriveMode(false, false));
 
-    /*driverAButton.whenPressed(new IntakeDeploy());
-    driverAButton.whenReleased(new IntakeRetract());*/
+    driverAButton.whenPressed(new IntakeDeploy());
+    driverAButton.whenReleased(new IntakeRetract());
 
-    /*driverLBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
+    driverLBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
     driverLBumper.whenReleased(new BallTunnelMotor(0));
     driverRBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
-    driverRBumper.whenReleased(new BallTunnelMotor(0));*/
+    driverRBumper.whenReleased(new BallTunnelMotor(0));
   }
 
   public Command getAutonomousCommand() {
