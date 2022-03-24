@@ -8,8 +8,6 @@ import frc.robot.commands.Auto;
 import frc.robot.commands.BallTunnelMotor;
 import frc.robot.commands.DriveMode;
 import frc.robot.commands.Dispense;
-import frc.robot.commands.DispenserMotor;
-import frc.robot.commands.DriveTime;
 import frc.robot.commands.IntakeDeploy;
 import frc.robot.commands.IntakeRetract;
 import frc.robot.subsystems.BallTunnel;
@@ -39,12 +37,13 @@ public class RobotContainer {
     JoystickButton driverRBumper = new JoystickButton(driverController, Constants.kBumperR);
     JoystickButton driverLBumper = new JoystickButton(driverController, Constants.kBumperL);
   
-    driverXButton.whenPressed(new DispenserMotor(Constants.kDispenserSpeed));
-    driverXButton.whenReleased(new DispenserMotor(0));
     driverYButton.whenPressed(new DriveMode(true, false));
     driverYButton.whenReleased(new DriveMode(false, false));
     driverBButton.whenPressed(new DriveMode(false, true));
     driverBButton.whenReleased(new DriveMode(false, false));
+
+    driverXButton.whenPressed(new Dispense(true));
+    driverXButton.whenReleased(new Dispense(false));
 
     driverAButton.whenPressed(new IntakeDeploy());
     driverAButton.whenReleased(new IntakeRetract());
@@ -57,6 +56,5 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     return new Auto();
-    //return new DriveTime(1, 1);
   }
 }

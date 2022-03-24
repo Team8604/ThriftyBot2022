@@ -17,7 +17,7 @@ public final class Constants {
     public static final double kSteerModifier = 0.8;
     public static final double kClimbDriveModifier = -0.5;
     public static final double kClimbSteerModifier = 0.5;
-    public static final double kBallTunnelSpeed = 0.25;
+    public static final double kBallTunnelSpeed = 1;
     public static final double kDispenserSpeed = -1;
     public static final double kIntakeSpeed = 0.5;
     //Button IDs
@@ -44,9 +44,9 @@ public final class Constants {
     public static final int kPIDLoopIdx = 0;
     public static final int kTimeoutMs = 0;
     public static final int kTimeoutsMs = 0;
-    public static final double kGains_Position_kP = 0.5;
-    public static final double kGains_Position_kI = 0;
-    public static final double kGains_Position_kD = 0;
+    public static final double kGains_Position_kP = 0.075;
+    public static final double kGains_Position_kI = 0.00;//DANGER DANGER DANGER NO MATTER WHAT YOU THINK IT WILL NOT END WELL IM SERIOUS
+    public static final double kGains_Position_kD = 0.25;
     public static final double kGains_Position_kF = 0;
 
     //Other
@@ -56,9 +56,9 @@ public final class Constants {
      * There is an 18 tooth pulley attached to the motor and a 64 tooth pulley attached to the intake arm.
      * The arm needs to rotate 90 degrees.
     */
-    public static double kIntakeRotationDegrees = 90;
+    public static double kIntakeRotationDegrees = -30;
     public static double kIntakeRotationRevs = kIntakeRotationDegrees/360;
     public static double kIntakeActuatorGearRatio = 64.0/18.0;
-    public static double kIntakeRotationRevsAtMotor = kIntakeActuatorGearRatio * kIntakeActuatorGearRatio;
+    public static double kIntakeRotationRevsAtMotor = kIntakeRotationRevs * kIntakeActuatorGearRatio;
     public static double kIntakeRotationTicks = 2048 * kIntakeRotationRevsAtMotor;
 }
