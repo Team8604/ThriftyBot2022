@@ -10,7 +10,9 @@ public class IntakePID {
 
     //Constant
     public double powerLimiter = 0.01;
+    
     public double mul_p = 0.01;
+    public double mul_g = 0.01;
     
     public double cycle(double currentPos) {
         double delta_ticks = target - currentPos;
@@ -18,7 +20,9 @@ public class IntakePID {
 
         double factor_p = delta_revs * mul_p;
 
-        double finalResult = factor_p;
+        double factor_g = gravityAdjustment(currentPos);
+
+        double finalResult = factor_p + factor_g;
         
         SmartDashboard.putNumber("current_intake_target_power", finalResult);
 
@@ -29,6 +33,15 @@ public class IntakePID {
         SmartDashboard.putNumber("current_intake_power", finalResult);
 
         return finalResult;
+    }
+
+    private double gravityAdjustment(double currentPos){
+        double angle = currentPos / Constants.kTicksPerDegree;
+        angle += Constants.kIntakeZeroedAngle;
+
+        double cosine = Math.cos(Math.toDegrees(angle));
+
+        return cosine * mul_g;
     }
 
 }
