@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.Auto;
-import frc.robot.commands.BallTunnelMotor;
+import frc.robot.commands.BallTunnelRun;
 import frc.robot.commands.DriveMode;
 import frc.robot.commands.Dispense;
 import frc.robot.commands.IntakeDeploy;
@@ -26,7 +26,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureButtonBindings();
 
-    //chassis.setDefaultCommand(new ArcadeDrive());
+    chassis.setDefaultCommand(new ArcadeDrive());
   }
 
   private void configureButtonBindings() {
@@ -48,10 +48,10 @@ public class RobotContainer {
     driverAButton.whenPressed(new IntakeDeploy());
     driverAButton.whenReleased(new IntakeRetract());
 
-    driverLBumper.whenPressed(new BallTunnelMotor(Constants.kBallTunnelSpeed));
-    driverLBumper.whenReleased(new BallTunnelMotor(0));
-    driverRBumper.whenPressed(new BallTunnelMotor(-Constants.kBallTunnelSpeed));
-    driverRBumper.whenReleased(new BallTunnelMotor(0));
+    driverLBumper.whenPressed(new BallTunnelRun(1));
+    driverLBumper.whenReleased(new BallTunnelRun(0));
+    driverRBumper.whenPressed(new BallTunnelRun(-1));
+    driverRBumper.whenReleased(new BallTunnelRun(0));
   }
 
   public Command getAutonomousCommand() {

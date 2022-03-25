@@ -6,6 +6,6 @@ import frc.robot.Constants;
 public class IntakeDeploy extends SequentialCommandGroup {
 
   public IntakeDeploy() {
-    addCommands(new IntakeMotor(Constants.kIntakeSpeed), new IntakeActuator(Constants.kIntakeRotationTicks));
+    addCommands(new IntakeMotor(Constants.kIntakeSpeed), new BallTunnelRun(1), new IntakeActuator(Constants.kIntakeRotationTicks));
   }
 }
