@@ -1,12 +1,12 @@
-package frc.robot.commands;
+package frc.robot.commands.Drivetrain;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
-public class GTADrive extends CommandBase {
+public class ArcadeDrive extends CommandBase {
 
-  public GTADrive() {
+  public ArcadeDrive() {
     addRequirements(RobotContainer.chassis);
   }
 
@@ -15,11 +15,16 @@ public class GTADrive extends CommandBase {
 
   @Override
   public void execute() {
-    double moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftTriggerY) - RobotContainer.driverController.getRawAxis(Constants.kRightTriggerY);
+    double moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickY);
     double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickX);
     
-    moveSpeed *= Constants.kDriveModifier;
-    rotateSpeed *= Constants.kSteerModifier;
+    if(RobotContainer.chassis.climb) {
+      moveSpeed *= Constants.kClimbDriveModifier;
+      rotateSpeed *= Constants.kClimbSteerModifier;
+    } else if(!RobotContainer.chassis.unlock) {
+      moveSpeed *= Constants.kDriveModifier;
+      rotateSpeed *= Constants.kSteerModifier;
+    }
 
     RobotContainer.chassis.arcadeDrive(rotateSpeed, moveSpeed);
   }

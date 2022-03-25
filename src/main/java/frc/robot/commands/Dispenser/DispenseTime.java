@@ -2,40 +2,36 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.Dispenser;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
-public class DriveTime extends CommandBase {
+public class DispenseTime extends CommandBase {
 
-  private double moveSpeed;
   private double duration;
   private Timer timer;
 
-  public DriveTime(double moveSpeed, double duration) {
-    addRequirements(RobotContainer.chassis);
-    this.moveSpeed = moveSpeed;
+  public DispenseTime(double duration) {
+    addRequirements(RobotContainer.dispenser);
     this.duration = duration;
-    timer = new Timer();
+    this.timer = new Timer();
     timer.start();
   }
 
   @Override
-  public void initialize() {
-  }
+  public void initialize() {}
 
   @Override
   public void execute() {
-    RobotContainer.chassis.setMotorSafety(false);
-    RobotContainer.chassis.arcadeDrive(moveSpeed, 0);
+    RobotContainer.dispenser.set(Constants.kDispenserSpeed);
   }
 
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.chassis.set(0, 0);
-    RobotContainer.chassis.setMotorSafety(true);
+    RobotContainer.dispenser.set(0);
   }
 
   @Override

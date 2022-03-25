@@ -1,7 +1,8 @@
-package frc.robot.commands;
+package frc.robot.commands.BallTunnel;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
+import frc.robot.commands.Dispenser.DispenserMotor;
 
 public class BallTunnelRun extends SequentialCommandGroup {
   //If direction is 0, stop. If direction is 1, run forwards. If direction is -1, run backwards. If direction is not 0, stop.

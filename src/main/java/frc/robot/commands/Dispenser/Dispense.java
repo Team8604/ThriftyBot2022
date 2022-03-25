@@ -1,7 +1,8 @@
-package frc.robot.commands;
+package frc.robot.commands.Dispenser;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
+import frc.robot.commands.BallTunnel.BallTunnelMotor;
 
 public class Dispense extends SequentialCommandGroup {
 
