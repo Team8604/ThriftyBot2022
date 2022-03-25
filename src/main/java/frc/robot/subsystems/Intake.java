@@ -26,6 +26,7 @@ public class Intake extends SubsystemBase {
     double currentPos = intakeActuatorMotor.getSelectedSensorPosition();
     SmartDashboard.putNumber("current_intake_value", currentPos);
     intakeActuatorMotor.set(intakePID.cycle(currentPos));
+    //intakePID.cycle(currentPos);
   }
 
   public void setActuator(double position) {

@@ -58,14 +58,14 @@ public final class Constants {
      * The arm needs to rotate 90 degrees.
     */
     public static final int kTicksPerRev = 2048;
-    public static final double kIntakeRotationDegrees = -30;
+    public static final double kIntakeRotationDegrees = -45;
     public static final double kIntakeRotationRevs = kIntakeRotationDegrees/360;
     public static final double kIntakeActuatorGearRatio = 64.0/18.0;
     public static final double kIntakeRotationRevsAtMotor = kIntakeRotationRevs * kIntakeActuatorGearRatio;
     public static final double kIntakeRotationTicks = kTicksPerRev * kIntakeRotationRevsAtMotor;
 
     public static final double kIntakeZeroedAngle = 85;
-    public static final double kDegreeRevs = 1/360;
-    public static final double kDegreeAtMotor = kIntakeRotationRevs * kIntakeActuatorGearRatio;
-    public static final double kTicksPerDegree = kTicksPerRev * kIntakeRotationRevsAtMotor;
+    public static final double kDegreeRevs = 1.0/360;
+    public static final double kDegreeAtMotor = kDegreeRevs * kIntakeActuatorGearRatio;
+    public static final double kTicksPerDegree = kTicksPerRev * kDegreeAtMotor;
 }

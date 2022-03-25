@@ -6,13 +6,13 @@ import frc.robot.Constants;
 public class IntakePID {
 
     //Variable
-    public double target;
+    public double target = 0;
 
     //Constant
-    public double powerLimiter = 0.01;
+    public double powerLimiter = 0.075;
     
-    public double mul_p = 0.01;
-    public double mul_g = 0.01;
+    public double mul_p = 0.00;
+    public double mul_g = 0.10;
     
     public double cycle(double currentPos) {
         double delta_ticks = target - currentPos;
@@ -28,6 +28,8 @@ public class IntakePID {
 
         if(finalResult > powerLimiter){//Protection
             finalResult = powerLimiter;
+        } else if(finalResult < -powerLimiter){
+            finalResult = -powerLimiter;
         }
 
         SmartDashboard.putNumber("current_intake_power", finalResult);
@@ -39,7 +41,9 @@ public class IntakePID {
         double angle = currentPos / Constants.kTicksPerDegree;
         angle += Constants.kIntakeZeroedAngle;
 
-        double cosine = Math.cos(Math.toDegrees(angle));
+        SmartDashboard.putNumber("current_intake_angle", angle);
+
+        double cosine = Math.cos(Math.toRadians(angle));
 
         return cosine * mul_g;
     }
