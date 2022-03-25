@@ -57,9 +57,10 @@ public final class Constants {
      * There is an 18 tooth pulley attached to the motor and a 64 tooth pulley attached to the intake arm.
      * The arm needs to rotate 90 degrees.
     */
-    public static double kIntakeRotationDegrees = -30;
-    public static double kIntakeRotationRevs = kIntakeRotationDegrees/360;
-    public static double kIntakeActuatorGearRatio = 64.0/18.0;
-    public static double kIntakeRotationRevsAtMotor = kIntakeRotationRevs * kIntakeActuatorGearRatio;
-    public static double kIntakeRotationTicks = 2048 * kIntakeRotationRevsAtMotor;
+    public static final int kTicksPerRev = 2048;
+    public static final double kIntakeRotationDegrees = -30;
+    public static final double kIntakeRotationRevs = kIntakeRotationDegrees/360;
+    public static final double kIntakeActuatorGearRatio = 64.0/18.0;
+    public static final double kIntakeRotationRevsAtMotor = kIntakeRotationRevs * kIntakeActuatorGearRatio;
+    public static final double kIntakeRotationTicks = kTicksPerRev * kIntakeRotationRevsAtMotor;
 }

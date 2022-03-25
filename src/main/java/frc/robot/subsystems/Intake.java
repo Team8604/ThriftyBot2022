@@ -1,7 +1,5 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
-import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -13,28 +11,25 @@ public class Intake extends SubsystemBase {
 
   private WPI_TalonFX intakeActuatorMotor;
   private WPI_VictorSPX intakeMotor;
+  public IntakePID intakePID;
 
   public Intake() {
     intakeMotor = new WPI_VictorSPX(Constants.kIntakeMotor);
 
     intakeActuatorMotor = new WPI_TalonFX(Constants.kIntakeActuationMotor);
 
-    intakeActuatorMotor.configFactoryDefault();
-    intakeActuatorMotor.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, Constants.kPIDLoopIdx,
-        Constants.kTimeoutsMs);
-    intakeActuatorMotor.config_kF(Constants.kPIDLoopIdx, Constants.kGains_Position_kF, Constants.kTimeoutsMs);
-    intakeActuatorMotor.config_kP(Constants.kPIDLoopIdx, Constants.kGains_Position_kP, Constants.kTimeoutsMs);
-    intakeActuatorMotor.config_kI(Constants.kPIDLoopIdx, Constants.kGains_Position_kI, Constants.kTimeoutsMs);
-    intakeActuatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kGains_Position_kD, Constants.kTimeoutsMs);
+    intakePID = new IntakePID();
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("current_intake_value", intakeActuatorMotor.getSelectedSensorPosition());
+    double currentPos = intakeActuatorMotor.getSelectedSensorPosition();
+    SmartDashboard.putNumber("current_intake_value", currentPos);
+    intakeActuatorMotor.set(intakePID.cycle(currentPos));
   }
 
   public void setActuator(double position) {
-    intakeActuatorMotor.set(TalonFXControlMode.Position, position);
+    intakePID.target = position;
     SmartDashboard.putNumber("target_intake_value", position);
   }
   
