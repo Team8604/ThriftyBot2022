@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -26,6 +27,7 @@ public class KOPChassis extends SubsystemBase {
   public boolean unlock = false;
 
   public KOPChassis() {
+    SmartDashboard.putBoolean("drive_enable", true);
     // Init Left Leader
     leftLeader  = new WPI_VictorSPX(Constants.kLeftLeader);
     leftLeader.configFactoryDefault();
@@ -47,12 +49,16 @@ public class KOPChassis extends SubsystemBase {
   }
 
   public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    if(SmartDashboard.getBoolean("drive_enable", true)){
+      differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    }
   }
 
   public void set(double leftspeed, double rightspeed){
-    leftMotors.set(leftspeed);
-    rightMotors.set(rightspeed);
+    if(SmartDashboard.getBoolean("drive_enable", true)){
+      leftMotors.set(leftspeed);
+      rightMotors.set(rightspeed);
+    }
   }
 
   public void setMotorSafety(boolean value){
