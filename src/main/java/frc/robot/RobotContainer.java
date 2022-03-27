@@ -22,7 +22,7 @@ public class RobotContainer {
   public static final Intake intake = new Intake();
 
   public static Joystick driverController = new Joystick(0);
-  public static Joystick buttonBoard = new Joystick(1);
+  //public static Joystick buttonBoard = new Joystick(1);
 
   public RobotContainer() {
     configureButtonBindings();
@@ -39,12 +39,12 @@ public class RobotContainer {
     JoystickButton driverRBumper = new JoystickButton(driverController, Constants.kBumperR);
     JoystickButton driverLBumper = new JoystickButton(driverController, Constants.kBumperL);
 
-    JoystickButton buttonBoardAButton = new JoystickButton(buttonBoard, Constants.kButtonA);
+    /*JoystickButton buttonBoardAButton = new JoystickButton(buttonBoard, Constants.kButtonA);
     JoystickButton buttonBoardBButton = new JoystickButton(buttonBoard, Constants.kButtonB);
     JoystickButton buttonBoardXButton = new JoystickButton(buttonBoard, Constants.kButtonX);
     JoystickButton buttonBoardYButton = new JoystickButton(buttonBoard, Constants.kButtonY);
     JoystickButton buttonBoardRBumper = new JoystickButton(buttonBoard, Constants.kBumperR);
-    JoystickButton buttonBoardLBumper = new JoystickButton(buttonBoard, Constants.kBumperL);
+    JoystickButton buttonBoardLBumper = new JoystickButton(buttonBoard, Constants.kBumperL);*/
   
     driverYButton.whenPressed(new DriveMode(true, false));
     driverYButton.whenReleased(new DriveMode(false, false));
@@ -63,7 +63,7 @@ public class RobotContainer {
     driverRBumper.whenReleased(new BallTunnelRun(0));
 
 
-    buttonBoardBButton.whenPressed(new Dispense(true));
+    /*buttonBoardBButton.whenPressed(new Dispense(true));
     buttonBoardBButton.whenReleased(new Dispense(false));
 
     buttonBoardAButton.whenPressed(new IntakeDeploy());
@@ -72,7 +72,7 @@ public class RobotContainer {
     buttonBoardXButton.whenPressed(new BallTunnelRun(1));
     buttonBoardXButton.whenReleased(new BallTunnelRun(0));
     buttonBoardYButton.whenPressed(new BallTunnelRun(-1));
-    buttonBoardYButton.whenReleased(new BallTunnelRun(0));
+    buttonBoardYButton.whenReleased(new BallTunnelRun(0));*/
   }
 
   public Command getAutonomousCommand() {
