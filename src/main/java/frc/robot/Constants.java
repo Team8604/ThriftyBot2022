@@ -42,6 +42,7 @@ public final class Constants {
     public static final int kButton4 = 4;
 
     //PID Constants
+    //Not currently used
     public static final int kPIDLoopIdx = 0;
     public static final int kTimeoutMs = 0;
     public static final int kTimeoutsMs = 0;
@@ -49,6 +50,15 @@ public final class Constants {
     public static final double kGains_Position_kI = 0.00;//DANGER DANGER DANGER NO MATTER WHAT YOU THINK IT WILL NOT END WELL IM SERIOUS
     public static final double kGains_Position_kD = 0.25;
     public static final double kGains_Position_kF = 0;
+
+    //Auto timing
+    public static final double kAutoDeadTime = 1;
+    public static final double kAutoDispenseTime = 6;
+    public static final double kAutoDriveTime = 4;
+
+    public static final double kAutoDeadEnd = kAutoDeadTime;
+    public static final double kAutoDispenseEnd = kAutoDeadEnd + kAutoDispenseTime;
+    public static final double kAutoDriveEnd = kAutoDispenseEnd + kAutoDriveTime;
 
     //Other
 

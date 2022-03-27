@@ -23,12 +23,12 @@ public class Auto extends CommandBase {
 
   @Override
   public void execute() {
-    if(timer.hasElapsed(8)){
+    if(timer.hasElapsed(Constants.kAutoDispenseEnd)){
       RobotContainer.chassis.setMotorSafety(false);
       RobotContainer.chassis.arcadeDrive(0, 0.5);
       RobotContainer.dispenser.set(0);
       RobotContainer.ballTunnel.set(0);
-    } else if(timer.hasElapsed(3)) {
+    } else if(timer.hasElapsed(Constants.kAutoDeadEnd)) {
       RobotContainer.dispenser.set(Constants.kDispenserSpeed);
       RobotContainer.ballTunnel.set(Constants.kBallTunnelSpeed);
     }
@@ -42,6 +42,6 @@ public class Auto extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return timer.hasElapsed(12);
+    return timer.hasElapsed(Constants.kAutoDriveEnd);
   }
 }
