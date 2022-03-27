@@ -15,7 +15,7 @@ public class GTADrive extends CommandBase {
 
   @Override
   public void execute() {
-    double moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftTriggerY) - RobotContainer.driverController.getRawAxis(Constants.kRightTriggerY);
+    double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.kLeftTriggerY) - RobotContainer.driverController.getRawAxis(Constants.kRightTriggerY);
     double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickX);
     
     moveSpeed *= Constants.kDriveModifier;

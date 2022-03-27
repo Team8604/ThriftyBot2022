@@ -27,7 +27,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureButtonBindings();
 
-    //chassis.setDefaultCommand(new ArcadeDrive());
+    chassis.setDefaultCommand(new ArcadeDrive());
   }
 
   @SuppressWarnings("unused")

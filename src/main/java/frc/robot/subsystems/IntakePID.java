@@ -11,7 +11,7 @@ public class IntakePID {
     //Constant
     public double powerLimiter = 0.075;
     
-    public double mul_p = 0.00;
+    public double mul_p = 0.35;
     public double mul_g = 0.10;
     
     public double cycle(double currentPos) {

@@ -12,8 +12,8 @@ public class TankDrive extends CommandBase {
 
   @Override
   public void initialize() {
-    double leftSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickY);
-    double rightSpeed = RobotContainer.driverController.getRawAxis(Constants.kRightStickY);
+    double leftSpeed = -RobotContainer.driverController.getRawAxis(Constants.kLeftStickY);
+    double rightSpeed = -RobotContainer.driverController.getRawAxis(Constants.kRightStickY);
     
     leftSpeed *= Constants.kDriveModifier;
     rightSpeed *= Constants.kDriveModifier;

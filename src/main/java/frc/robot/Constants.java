@@ -13,13 +13,13 @@ public final class Constants {
     public static final int kIntakeActuationMotor = 4;
 
     //Multipliers
-    public static final double kDriveModifier = -0.9;
+    public static final double kDriveModifier = 0.9;
     public static final double kSteerModifier = 0.8;
-    public static final double kClimbDriveModifier = -0.5;
+    public static final double kClimbDriveModifier = 0.5;
     public static final double kClimbSteerModifier = 0.5;
-    public static final double kBallTunnelSpeed = 1;
+    public static final double kBallTunnelSpeed = 1.0;
     public static final double kDispenserSpeed = -1;
-    public static final double kDispenserSpeedDuringBallTunnel = 0.1;//Runs the dispenser *backwards* during ball tunnel operations, trying to trap it at the top of the tunnel.
+    public static final double kDispenserSpeedDuringBallTunnel = 0.6;//Runs the dispenser *backwards* during ball tunnel operations, trying to trap it at the top of the tunnel.
     public static final double kIntakeSpeed = 0.5;
     //Button IDs
     public static final int kButtonA = 1;
