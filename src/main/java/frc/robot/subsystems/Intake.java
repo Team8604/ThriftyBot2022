@@ -16,7 +16,7 @@ public class Intake extends SubsystemBase {
   public Intake() {
     intakeMotor = new WPI_VictorSPX(Constants.kIntakeMotor);
 
-    intakeActuatorMotor = new WPI_TalonFX(Constants.kIntakeActuationMotor);
+    //intakeActuatorMotor = new WPI_TalonFX(Constants.kIntakeActuationMotor);
 
     intakePID = new IntakePID();
   }
@@ -25,7 +25,7 @@ public class Intake extends SubsystemBase {
   public void periodic() {
     double currentPos = intakeActuatorMotor.getSelectedSensorPosition();
     SmartDashboard.putNumber("current_intake_value", currentPos);
-    intakeActuatorMotor.set(intakePID.cycle(currentPos));
+    //intakeActuatorMotor.set(intakePID.cycle(currentPos));
     //intakePID.cycle(currentPos);
   }
 
