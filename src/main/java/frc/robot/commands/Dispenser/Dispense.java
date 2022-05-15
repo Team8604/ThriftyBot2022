@@ -7,6 +7,6 @@ import frc.robot.commands.BallTunnel.BallTunnelMotor;
 public class Dispense extends SequentialCommandGroup {
 
   public Dispense(boolean dispense) {
-    addCommands(new BallTunnelMotor(dispense ? Constants.kBallTunnelSpeed : 0), new DispenserMotor(dispense ? Constants.kDispenserSpeed : 0));
+    addCommands(new BallTunnelMotor(dispense ? Constants.kBallTunnelSpeedDuringDispensing : 0), new DispenserMotor(dispense ? Constants.kDispenserSpeed : 0));
   }
 }

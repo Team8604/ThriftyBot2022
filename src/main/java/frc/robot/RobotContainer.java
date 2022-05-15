@@ -54,8 +54,8 @@ public class RobotContainer {
     driverXButton.whenPressed(new Dispense(true));
     driverXButton.whenReleased(new Dispense(false));
 
-    driverAButton.whenPressed(new IntakeDeploy());
-    driverAButton.whenReleased(new IntakeRetract());
+    /*driverAButton.whenPressed(new IntakeDeploy());
+    driverAButton.whenReleased(new IntakeRetract());*/
 
     driverLBumper.whenPressed(new BallTunnelRun(1));
     driverLBumper.whenReleased(new BallTunnelRun(0));

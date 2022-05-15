@@ -23,18 +23,18 @@ public class Intake extends SubsystemBase {
 
   @Override
   public void periodic() {
-    double currentPos = intakeActuatorMotor.getSelectedSensorPosition();
-    SmartDashboard.putNumber("current_intake_value", currentPos);
+    //double currentPos = intakeActuatorMotor.getSelectedSensorPosition();
+    //SmartDashboard.putNumber("current_intake_value", currentPos);
     //intakeActuatorMotor.set(intakePID.cycle(currentPos));
     //intakePID.cycle(currentPos);
   }
 
   public void setActuator(double position) {
-    intakePID.target = position;
-    SmartDashboard.putNumber("target_intake_value", position);
+    //intakePID.target = position;
+    //SmartDashboard.putNumber("target_intake_value", position);
   }
   
   public void set(double speed){
-    intakeMotor.set(speed);
+    //intakeMotor.set(speed);
   }
 }
