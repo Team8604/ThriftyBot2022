@@ -6,9 +6,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Drive;
 import frc.robot.commands.SwitchMode;
 import frc.robot.subsystems.KOPChassis;
+import frc.robot.subsystems.TestMechanism;
 
 public class RobotContainer {
   public static final KOPChassis chassis = new KOPChassis();
+  public static final TestMechanism test = new TestMechanism(); 
 
   public static Joystick driverController = new Joystick(0);
 

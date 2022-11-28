@@ -7,8 +7,7 @@ public final class Constants {
     public static final int kRightFollower = 1;
     public static final int kLeftLeader = 2;
     public static final int kLeftFollower = 3;
-    public static final int[] kBallTunnelMotors = new int[] { 4, 5 };
-    public static final int[] kDispenserMotors = new int[] { 6, 7 };
+    public static final int kTestMotor = 4;
 
     //Multipliers
     public static final double kDriveModifier = 0.40;
