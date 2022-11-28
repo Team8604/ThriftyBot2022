@@ -16,6 +16,10 @@ public class TestMechanism extends SubsystemBase {
     motor = new WPI_VictorSPX(Constants.kTestMotor);
   }
 
+  public void set(double value) {
+    motor.set(value);
+  }
+
   @Override
   public void periodic() {
   }

@@ -33,4 +33,7 @@ public final class Constants {
     public static final int kButton2 = 2;
     public static final int kButton3 = 3;
     public static final int kButton4 = 4;
+
+    //Other
+    public static final double kDeadZone = 0.05;
 }
