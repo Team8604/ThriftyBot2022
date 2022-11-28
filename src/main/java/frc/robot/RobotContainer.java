@@ -30,7 +30,6 @@ public class RobotContainer {
   
     driverAButton.whenPressed(new SwitchMode(0));
     driverBButton.whenPressed(new SwitchMode(1));
-    driverXButton.whenPressed(new SwitchMode(2));
     driverYButton.whenPressed(new SwitchMode(3));
   }
 

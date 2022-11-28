@@ -37,16 +37,7 @@ public class Drive extends CommandBase {
     
         RobotContainer.chassis.set(leftSpeed, rightSpeed);
         break;
-      case 2://GTA drive
-        moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftTriggerY) - RobotContainer.driverController.getRawAxis(Constants.kRightTriggerY);
-        rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickX);
-        
-        moveSpeed *= Constants.kDriveModifier;
-        rotateSpeed *= Constants.kDriveModifier;
-
-        RobotContainer.chassis.arcadeDrive(rotateSpeed, moveSpeed);
-        break;
-        case 3://Arcade drive but uses different sticks 
+      case 3://Arcade drive but uses different sticks 
           moveSpeed = RobotContainer.driverController.getRawAxis(Constants.kLeftStickY);
           rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.kRightStickX);
           
