@@ -5,14 +5,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Drive;
 import frc.robot.commands.SwitchMode;
-import frc.robot.subsystems.BallTunnel;
-import frc.robot.subsystems.Dispenser;
 import frc.robot.subsystems.KOPChassis;
 
 public class RobotContainer {
   public static final KOPChassis chassis = new KOPChassis();
-  public static final BallTunnel ballTunnel = new BallTunnel();
-  public static final Dispenser dispenser = new Dispenser();
 
   public static Joystick driverController = new Joystick(0);
 
