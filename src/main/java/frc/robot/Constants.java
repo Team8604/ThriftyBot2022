@@ -3,16 +3,19 @@ package frc.robot;
 public final class Constants {
 
     //CAN IDs
-    public static final int kRightLeader = 0;
-    public static final int kRightFollower = 1;
-    public static final int kLeftLeader = 2;
-    public static final int kLeftFollower = 3;
-    public static final int kTestMotor = 4;
+    public static final int kRightLeader = 14;
+    public static final int kRightFollower = 7;
+    public static final int kLeftLeader = 10;
+    public static final int kLeftFollower = 2;
+    public static final int kTestMotor1 = 3;
+    public static final int kTestMotor2 = 1;
 
     //Multipliers
     public static final double kDriveModifier = 0.40;
     public static final double kBallTunnelSpeed = 0.25;
     public static final double kDispenserSpeed = 1;
+    public static final double kTestMul1 = -1;
+    public static final double kTestMul2 = -1;
 
     // Button IDs
     public static final int kButtonA = 1;

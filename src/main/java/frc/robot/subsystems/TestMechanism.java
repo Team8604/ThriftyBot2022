@@ -10,14 +10,18 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class TestMechanism extends SubsystemBase {
-  public WPI_VictorSPX motor;
+  public WPI_VictorSPX motor1;
+  public WPI_VictorSPX motor2;
 
   public TestMechanism() {
-    motor = new WPI_VictorSPX(Constants.kTestMotor);
+    motor1 = new WPI_VictorSPX(Constants.kTestMotor1);
+    motor2 = new WPI_VictorSPX(Constants.kTestMotor2);
+
   }
 
   public void set(double value) {
-    motor.set(value);
+    motor1.set(value * Constants.kTestMul1);
+    motor2.set(value * Constants.kTestMul2);
   }
 
   @Override

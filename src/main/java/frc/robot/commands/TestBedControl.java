@@ -31,7 +31,7 @@ public class TestBedControl extends CommandBase {
       if(Math.abs(value) >= Constants.kDeadZone) {
         RobotContainer.test.set(value);
       } else {
-        RobotContainer.test.set(1);
+        RobotContainer.test.set(0);
       }
     }
 
